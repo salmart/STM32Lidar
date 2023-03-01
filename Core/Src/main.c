@@ -157,7 +157,7 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef*huart){
 		//iterating through the data received and assigning it to the array
 		databuffer[count]= lidar_temp_data;
 		++count;
-
+ff
 	}
 }
 
