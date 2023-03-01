@@ -242,7 +242,7 @@ int main(void)
 
   HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_1);//ESC
   HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_2);//SERVO
-	TIM1->CCR2 = 160;
+	TIM1->CCR1 = 160;
 
   /* USER CODE END 2 */
 
