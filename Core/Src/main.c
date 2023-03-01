@@ -250,11 +250,14 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {//Look at the parameters to let you know what you are receiving
-	  HAL_UART_Receive_DMA(&huart2,&lidar_temp_data,1);
-	  if (count ==46){
+	  if (count <= 46){
+		  HAL_UART_Receive_DMA(&huart2,&lidar_temp_data,1);
+	  }
+
+	  else {
 		  //Transmission is for us to see on the real term
 		 // HAL_UART_Transmit(&huart3,(uint8_t*)databuffer,47,100);
-          if (CalCRC8((uint8_t*)databuffer, count)== databuffer[count]){
+          if (CalCRC8((uint8_t*)databuffer, count)== databuffer[46]){
         	  AssignVal(databuffer);
           }
 	  }

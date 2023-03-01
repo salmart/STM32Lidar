@@ -1,6 +1,6 @@
 ../Core/Src/main.c:50:9:CalCRC8	24	static
 ../Core/Src/main.c:149:6:HAL_UART_RxCpltCallback	16	static
-../Core/Src/main.c:166:6:AssignVal	328	static
+../Core/Src/main.c:165:6:AssignVal	328	static
 ../Core/Src/main.c:195:6:MoveAlgorithm	8	static
 ../Core/Src/main.c:211:5:main	8	static
 ../Core/Src/main.c:273:6:SystemClock_Config	88	static

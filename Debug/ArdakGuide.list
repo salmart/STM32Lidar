@@ -41,13 +41,13 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY, DEBUGGING, OCTETS
  18 .debug_macro  00029738  00000000  00000000  0003df28  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 19 .debug_line   000166e7  00000000  00000000  00067660  2**0
+ 19 .debug_line   000166e5  00000000  00000000  00067660  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 20 .debug_str    00103a8d  00000000  00000000  0007dd47  2**0
+ 20 .debug_str    00103a98  00000000  00000000  0007dd45  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 21 .comment      00000050  00000000  00000000  001817d4  2**0
+ 21 .comment      00000050  00000000  00000000  001817dd  2**0
                   CONTENTS, READONLY
- 22 .debug_frame  00005348  00000000  00000000  00181824  2**2
+ 22 .debug_frame  00005348  00000000  00000000  00181830  2**2
                   CONTENTS, READONLY, DEBUGGING, OCTETS
 
 Disassembly of section .text:
@@ -443,10 +443,10 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef*huart){
  80005b2:	b2da      	uxtb	r2, r3
  80005b4:	4b10      	ldr	r3, [pc, #64]	; (80005f8 <HAL_UART_RxCpltCallback+0x6c>)
  80005b6:	701a      	strb	r2, [r3, #0]
+	else if (count <=46 && databuffer[0]==0x54){
 		//iterating through the data received and assigning it to the array
 		databuffer[count]= lidar_temp_data;
 		++count;
-
 	}
 }
  80005b8:	e014      	b.n	80005e4 <HAL_UART_RxCpltCallback+0x58>
@@ -697,14 +697,14 @@ void AssignVal(uint8_t arr[]){
  80007c8:	2265      	movs	r2, #101	; 0x65
  80007ca:	4619      	mov	r1, r3
  80007cc:	f005 ff92 	bl	80066f4 <memcpy>
-	 }
-	 else if (lf.start_angle>= 264 && lf.end_angle<=276){
+	 else if (lf.start_angle>= 264 && lf.end_angle<=276)
+	 {
 		 MoveAlgorithm(L0,lf);
 	 }
 
 }
  80007d0:	e02a      	b.n	8000828 <AssignVal+0x22c>
-	 else if (lf.start_angle>= 264 && lf.end_angle<=276){
+	 else if (lf.start_angle>= 264 && lf.end_angle<=276)
  80007d2:	f8d7 300e 	ldr.w	r3, [r7, #14]
  80007d6:	eddf 7a1b 	vldr	s15, [pc, #108]	; 8000844 <AssignVal+0x248>
  80007da:	ee07 3a10 	vmov	s14, r3
@@ -713,7 +713,7 @@ void AssignVal(uint8_t arr[]){
  80007e6:	da00      	bge.n	80007ea <AssignVal+0x1ee>
 }
  80007e8:	e01e      	b.n	8000828 <AssignVal+0x22c>
-	 else if (lf.start_angle>= 264 && lf.end_angle<=276){
+	 else if (lf.start_angle>= 264 && lf.end_angle<=276)
  80007ea:	f8d7 3066 	ldr.w	r3, [r7, #102]	; 0x66
  80007ee:	eddf 7a16 	vldr	s15, [pc, #88]	; 8000848 <AssignVal+0x24c>
  80007f2:	ee07 3a10 	vmov	s14, r3
